@@ -126,9 +126,9 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
-<ItemGroup>
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1"/>
-</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyWeatherApp\MyWeatherApp.csproj">
       <Project>{3634A86B-1F8C-4840-BDCB-4977426A9D66}</Project>
