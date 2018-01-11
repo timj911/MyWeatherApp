@@ -6,11 +6,11 @@ namespace MyWeatherApp
     class Core
     {
 
-        public static async Task<Weather> GetWeather(string zipCode)
+        public static async Task<Weather> GetWeather(string lat, string lon)
         {
 
             string key = "a080d3b91e8e841d6f6c1ac46fba8e44";
-            string queryString = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + key + "&units=imperial";
+            string queryString = "http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon=" + lon + "&appid=" + key + "&units=metric";
 
             dynamic results = await DataService.getDataFromService(queryString).ConfigureAwait(false);
 
