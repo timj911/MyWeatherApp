@@ -4,16 +4,50 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <Button
-        android:id="@+id/button1"
-        android:text="@string/hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
     <TextView
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/DateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/button1"
-        android:id="@+id/PlaceTextView" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Today: "
+        android:textSize="18sp" />
+    <ImageView
+        android:id="@+id/WeatherImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DateTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+    <TextView
+        android:id="@+id/MaxTempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/DateTextView"
+        android:layout_alignStart="@+id/DateTextView"
+        android:layout_below="@+id/WeatherImageView"
+        android:layout_marginTop="35dp"
+        android:text="Max: "
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/MinTempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/MaxTempTextView"
+        android:layout_alignStart="@+id/MaxTempTextView"
+        android:layout_below="@+id/MaxTempTextView"
+        android:layout_marginTop="27dp"
+        android:text="Min:"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/LocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/MinTempTextView"
+        android:layout_alignStart="@+id/MinTempTextView"
+        android:layout_below="@+id/MinTempTextView"
+        android:layout_marginTop="27dp"
+        android:text="Location"
+        android:textSize="18sp" />
 </RelativeLayout>

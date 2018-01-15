@@ -16,14 +16,14 @@ namespace MyWeatherApp.Droid
             SetContentView(Resource.Layout.Main);
 
 
-            var button = FindViewById<Button>(Resource.Id.button1);
+            //var button = FindViewById<Button>(Resource.Id.button1);
 
-            button.Click += async (s,e) => {
+            //button.Click += async (s,e) => {
 
-                Weather weerman = await Core.GetWeather();
-                var Temp = FindViewById<TextView>(Resource.Id.PlaceTextView);
-                Temp.Text = weerman.Location;
-            };
+            //    Weather weerman = await Core.GetWeather();
+            //    var Temp = FindViewById<TextView>(Resource.Id.PlaceTextView);
+            //    Temp.Text = weerman.Location;
+            //};
 
         }
 
