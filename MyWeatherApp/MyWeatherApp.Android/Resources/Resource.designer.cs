@@ -310,7 +310,7 @@ namespace MyWeatherApp.Droid
 			public const int notification_main_column_container = 2131361811;
 			
 			// aapt resource value: 0x7f0a000f
-			public const int progressBar1 = 2131361807;
+			public const int progressBarHolder = 2131361807;
 			
 			// aapt resource value: 0x7f0a0018
 			public const int right_icon = 2131361816;

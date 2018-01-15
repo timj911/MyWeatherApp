@@ -5,6 +5,7 @@ using Android.OS;
 using Square.Picasso;
 using System.Globalization;
 using static Android.Widget.ImageView;
+using Android.Views.Animations;
 
 namespace MyWeatherApp.Droid
 {
@@ -18,27 +19,38 @@ namespace MyWeatherApp.Droid
 
             SetContentView(Resource.Layout.Main);
 
+            AlphaAnimation inAnimation;
+            AlphaAnimation outAnimation;
+
             //Get the widgets
             TextView dateTextView = FindViewById<TextView>(Resource.Id.DateTextView);
             TextView maxTempTextView = FindViewById<TextView>(Resource.Id.MaxTempTextView);
             TextView minTempTextView = FindViewById<TextView>(Resource.Id.MinTempTextView);
             TextView locationTextView = FindViewById<TextView>(Resource.Id.LocationTextView);
             ImageView weatherImageView = FindViewById<ImageView>(Resource.Id.WeatherImageView);
-            ProgressBar pb = FindViewById<ProgressBar>(Resource.Id.progressBar1);
+            FrameLayout pbHolder = FindViewById<FrameLayout>(Resource.Id.progressBarHolder);
 
             //Get weather
-            pb.Visibility = Android.Views.ViewStates.Visible;
+            inAnimation = new AlphaAnimation(0f, 1f);
+            inAnimation.Duration = 200;
+            pbHolder.Animation = inAnimation;
+            pbHolder.Visibility = Android.Views.ViewStates.Visible;
+
             Weather WeerMan = await Core.GetWeather();
-            pb.Visibility = Android.Views.ViewStates.Gone;
+
+            outAnimation = new AlphaAnimation(1f, 0f);
+            outAnimation.Duration = 200;
+            pbHolder.Animation = outAnimation;
+            pbHolder.Visibility = Android.Views.ViewStates.Gone;
 
             //Get country name from RegionInfo
             RegionInfo countryName = new RegionInfo(WeerMan.Country);
 
             //Set values    
-            dateTextView.Text += DateTime.Today.ToShortDateString();
-            maxTempTextView.Text += WeerMan.MaxTemp + " °C";
-            minTempTextView.Text += WeerMan.MinTemp + " °C";
-            locationTextView.Text += String.Format("{0}, {1}" ,WeerMan.Location, countryName.DisplayName);
+            dateTextView.Text = "Today, " + DateTime.Today.ToLongDateString();
+            maxTempTextView.Text = "Max: " + WeerMan.MaxTemp + " °C";
+            minTempTextView.Text = "Min: " + WeerMan.MinTemp + " °C";
+            locationTextView.Text = String.Format("{0}, {1}" ,WeerMan.Location, countryName.DisplayName);
 
             //load weather image
             Picasso.With(this)
