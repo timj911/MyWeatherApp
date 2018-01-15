@@ -24,8 +24,12 @@ namespace MyWeatherApp.Droid
             TextView locationTextView = FindViewById<TextView>(Resource.Id.LocationTextView);
             ImageView weatherImageView = FindViewById<ImageView>(Resource.Id.WeatherImageView);
 
+            ProgressBar pb = FindViewById<ProgressBar>(Resource.Id.progressBar1);
+
             //Get weather
-             Weather WeerMan = await Core.GetWeather();
+            pb.Visibility = Android.Views.ViewStates.Visible;
+            Weather WeerMan = await Core.GetWeather();
+            pb.Visibility = Android.Views.ViewStates.Gone;
 
             //Set values    
             dateTextView.Text += DateTime.Today.ToShortDateString();
