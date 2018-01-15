@@ -18,13 +18,12 @@ namespace MyWeatherApp.Droid
 
             SetContentView(Resource.Layout.Main);
 
-            //Get the Widgets
+            //Get the widgets
             TextView dateTextView = FindViewById<TextView>(Resource.Id.DateTextView);
             TextView maxTempTextView = FindViewById<TextView>(Resource.Id.MaxTempTextView);
             TextView minTempTextView = FindViewById<TextView>(Resource.Id.MinTempTextView);
             TextView locationTextView = FindViewById<TextView>(Resource.Id.LocationTextView);
             ImageView weatherImageView = FindViewById<ImageView>(Resource.Id.WeatherImageView);
-
             ProgressBar pb = FindViewById<ProgressBar>(Resource.Id.progressBar1);
 
             //Get weather
@@ -32,17 +31,16 @@ namespace MyWeatherApp.Droid
             Weather WeerMan = await Core.GetWeather();
             pb.Visibility = Android.Views.ViewStates.Gone;
 
-            //Get Country from Region Info
+            //Get country name from RegionInfo
             RegionInfo countryName = new RegionInfo(WeerMan.Country);
-
 
             //Set values    
             dateTextView.Text += DateTime.Today.ToShortDateString();
             maxTempTextView.Text += WeerMan.MaxTemp + " °C";
             minTempTextView.Text += WeerMan.MinTemp + " °C";
-            locationTextView.Text += String.Format("{0}, {1}" ,WeerMan.Location, countryName);
+            locationTextView.Text += String.Format("{0}, {1}" ,WeerMan.Location, countryName.DisplayName);
 
-            //load waether image
+            //load weather image
             Picasso.With(this)
             .Load(String.Format("http://openweathermap.org/img/w/{0}.png" ,WeerMan.WeatherIcon))
             .Into(weatherImageView);
@@ -53,4 +51,3 @@ namespace MyWeatherApp.Droid
 
     }
 }
-
