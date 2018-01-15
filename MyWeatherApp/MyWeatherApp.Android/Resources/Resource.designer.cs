@@ -209,17 +209,20 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f020007
 			public const int notification_icon_background = 2130837511;
 			
-			// aapt resource value: 0x7f02000a
-			public const int notification_template_icon_bg = 2130837514;
-			
 			// aapt resource value: 0x7f02000b
-			public const int notification_template_icon_low_bg = 2130837515;
+			public const int notification_template_icon_bg = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int notification_template_icon_low_bg = 2130837516;
 			
 			// aapt resource value: 0x7f020008
 			public const int notification_tile_bg = 2130837512;
 			
 			// aapt resource value: 0x7f020009
 			public const int notify_panel_notification_icon_bg = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int Weather = 2130837514;
 			
 			static Drawable()
 			{
@@ -439,6 +442,9 @@ namespace MyWeatherApp.Droid
 			
 			// aapt resource value: 0x7f090003
 			public const int TextAppearance_Compat_Notification_Title = 2131296259;
+			
+			// aapt resource value: 0x7f090007
+			public const int Theme_Splash = 2131296263;
 			
 			// aapt resource value: 0x7f090004
 			public const int Widget_Compat_NotificationActionContainer = 2131296260;

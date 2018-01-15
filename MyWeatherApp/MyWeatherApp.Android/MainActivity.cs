@@ -1,12 +1,13 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Widget;
 using Android.OS;
-using System;
 using Square.Picasso;
+using static Android.Widget.ImageView;
 
 namespace MyWeatherApp.Droid
 {
-    [Activity(Label = "Weather", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(Label = "Weather")]
     public class MainActivity : Activity
     {
 
@@ -27,15 +28,17 @@ namespace MyWeatherApp.Droid
              Weather WeerMan = await Core.GetWeather();
 
             //Set values    
-            dateTextView.Text += DateTime.Today;
-            maxTempTextView.Text += WeerMan.MaxTemp;
-            minTempTextView.Text += WeerMan.MinTemp;
+            dateTextView.Text += DateTime.Today.ToShortDateString();
+            maxTempTextView.Text += WeerMan.MaxTemp + " °C";
+            minTempTextView.Text += WeerMan.MinTemp + " °C";
             locationTextView.Text += WeerMan.Location;
 
             //load waether image
             Picasso.With(this)
-            .Load(WeerMan.WeatherIcon)
+            .Load(String.Format("http://openweathermap.org/img/w/{0}.png" ,WeerMan.WeatherIcon))
             .Into(weatherImageView);
+
+            weatherImageView.SetScaleType(ScaleType.FitCenter);
 
         }
 

@@ -16,7 +16,7 @@
     <ImageView
         android:id="@+id/WeatherImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250px"
         android:layout_below="@+id/DateTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp" />
@@ -38,7 +38,7 @@
         android:layout_alignStart="@+id/MaxTempTextView"
         android:layout_below="@+id/MaxTempTextView"
         android:layout_marginTop="27dp"
-        android:text="Min:"
+        android:text="Min: "
         android:textSize="24sp" />
     <TextView
         android:id="@+id/LocationTextView"
@@ -48,6 +48,6 @@
         android:layout_alignStart="@+id/MinTempTextView"
         android:layout_below="@+id/MinTempTextView"
         android:layout_marginTop="27dp"
-        android:text="Location"
+        android:text="Location: "
         android:textSize="18sp" />
 </RelativeLayout>
