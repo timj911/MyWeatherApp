@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using System;
 
 namespace MyWeatherApp.Droid
 {
@@ -14,7 +15,18 @@ namespace MyWeatherApp.Droid
 
             SetContentView(Resource.Layout.Main);
 
+
+            var button = FindViewById<Button>(Resource.Id.button1);
+
+            button.Click += async (s,e) => {
+
+                Weather weerman = await Core.GetWeather();
+                var Temp = FindViewById<TextView>(Resource.Id.PlaceTextView);
+                Temp.Text = weerman.Location;
+            };
+
         }
+
     }
 }
 

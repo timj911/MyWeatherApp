@@ -1,33 +1,52 @@
-﻿using System;
+﻿using Plugin.Geolocator;
+using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace MyWeatherApp
 {
-    class Core
+    public class Core
     {
 
-        public static async Task<Weather> GetWeather(string lat, string lon)
+        public static async Task<Weather> GetWeather()
         {
 
-            string key = "a080d3b91e8e841d6f6c1ac46fba8e44";
-            string queryString = "http://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon=" + lon + "&appid=" + key + "&units=metric";
-
-            dynamic results = await DataService.getDataFromService(queryString).ConfigureAwait(false);
-
-            if (results["weather"] != null)
+            try
             {
-                Weather weather = new Weather();
-                weather.Location = (string)results["name"];
-                weather.MinTemp = (string)results["main"]["temp_min"];
-                weather.MaxTemp = (string)results["main"]["temp_max"];
-                weather.WeatherIcon = (string)results["weather"][0]["icon"];
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 50;
 
-                return weather;
+                TimeSpan ts = TimeSpan.FromMilliseconds(10000);
+
+                var position = await locator.GetPositionAsync(timeout: ts);
+
+                string key = "a080d3b91e8e841d6f6c1ac46fba8e44";
+                string queryString = "http://api.openweathermap.org/data/2.5/weather?lat=" + position.Latitude + "&lon=" + position.Longitude + "&appid=" + key + "&units=metric";
+
+                dynamic results = await DataService.getDataFromService(queryString).ConfigureAwait(false);
+
+                if (results["weather"] != null)
+                {
+                    Weather weather = new Weather
+                    {
+                        Location = (string)results["name"],
+                        MinTemp = (string)results["main"]["temp_min"],
+                        MaxTemp = (string)results["main"]["temp_max"],
+                        WeatherIcon = (string)results["weather"][0]["icon"]
+                    };
+
+                    return weather;
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                return null;
+                Debug.WriteLine("Error: " + ex);
             }
+
+            return null;
+
         }
 
     }
