@@ -2,6 +2,7 @@
 <resources>
   <style name="Theme.Splash" parent="android:Theme">
     <item name="android:windowBackground">@drawable/Weather</item>
+    <!--<item name="android:">blue</item>-->
     <item name="android:windowNoTitle">true</item>
   </style>
 </resources>

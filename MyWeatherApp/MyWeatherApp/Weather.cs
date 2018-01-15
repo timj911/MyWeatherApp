@@ -6,6 +6,7 @@
         public string MinTemp { get; set; }
         public string MaxTemp { get; set; }
         public string WeatherIcon { get; set; }
+        public string Country { get; set; }
 
 
         public Weather()
@@ -14,6 +15,7 @@
             this.MinTemp = " ";
             this.MaxTemp = " ";
             this.WeatherIcon = " ";
+            this.Country = " ";
         }
     }
 }

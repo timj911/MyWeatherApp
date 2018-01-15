@@ -3,6 +3,7 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 using Square.Picasso;
+using System.Globalization;
 using static Android.Widget.ImageView;
 
 namespace MyWeatherApp.Droid
@@ -31,11 +32,15 @@ namespace MyWeatherApp.Droid
             Weather WeerMan = await Core.GetWeather();
             pb.Visibility = Android.Views.ViewStates.Gone;
 
+            //Get Country from Region Info
+            RegionInfo countryName = new RegionInfo(WeerMan.Country);
+
+
             //Set values    
             dateTextView.Text += DateTime.Today.ToShortDateString();
             maxTempTextView.Text += WeerMan.MaxTemp + " °C";
             minTempTextView.Text += WeerMan.MinTemp + " °C";
-            locationTextView.Text += WeerMan.Location;
+            locationTextView.Text += String.Format("{0}, {1}" ,WeerMan.Location, countryName);
 
             //load waether image
             Picasso.With(this)
