@@ -1,4 +1,6 @@
-﻿namespace MyWeatherApp
+﻿using System;
+
+namespace MyWeatherApp
 {
     public class Weather
     {
