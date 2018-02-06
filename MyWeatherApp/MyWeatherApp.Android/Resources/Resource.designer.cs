@@ -237,14 +237,14 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a000a
 			public const int DateTextView = 2131361802;
 			
-			// aapt resource value: 0x7f0a000e
-			public const int LocationTextView = 2131361806;
+			// aapt resource value: 0x7f0a000f
+			public const int LocationTextView = 2131361807;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int MaxTempTextView = 2131361804;
 			
-			// aapt resource value: 0x7f0a000d
-			public const int MinTempTextView = 2131361805;
+			// aapt resource value: 0x7f0a000e
+			public const int MinTempTextView = 2131361806;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int WeatherImageView = 2131361803;
@@ -321,8 +321,8 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int text2 = 2131361795;
 			
-			// aapt resource value: 0x7f0a000f
-			public const int textView2 = 2131361807;
+			// aapt resource value: 0x7f0a000d
+			public const int textView2 = 2131361805;
 			
 			// aapt resource value: 0x7f0a001b
 			public const int time = 2131361819;
@@ -399,6 +399,9 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f030001
 			public const int Icon = 2130903041;
 			
+			// aapt resource value: 0x7f030002
+			public const int noInternet = 2130903042;
+			
 			static Mipmap()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -412,11 +415,8 @@ namespace MyWeatherApp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int app_name = 2131034114;
-			
 			// aapt resource value: 0x7f050001
-			public const int hello = 2131034113;
+			public const int app_name = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int status_bar_notification_info_overflow = 2131034112;

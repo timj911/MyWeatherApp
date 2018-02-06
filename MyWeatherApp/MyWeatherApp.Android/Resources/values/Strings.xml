@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Get Location</string>
-	<string name="app_name">MyWeatherApp.Droid</string>
+	<string name="app_name">My Weather App</string>
 </resources>

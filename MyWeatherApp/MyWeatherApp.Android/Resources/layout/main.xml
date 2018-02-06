@@ -8,7 +8,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_marginTop="48dp"
             android:textSize="18sp" />
 
@@ -22,17 +22,15 @@
   <TextView android:id="@+id/MaxTempTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/DateTextView"
-            android:layout_alignStart="@+id/DateTextView"
-            android:layout_below="@+id/WeatherImageView"
-            android:layout_marginTop="35dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
             android:textSize="30sp" />
 
   <TextView android:id="@+id/MinTempTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/MaxTempTextView"
-            android:layout_alignStart="@+id/MaxTempTextView"
+            android:layout_centerInParent="true"
             android:layout_below="@+id/MaxTempTextView"
             android:layout_marginTop="27dp"
             android:textSize="24sp" />
@@ -40,8 +38,7 @@
   <TextView android:id="@+id/LocationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/MinTempTextView"
-            android:layout_alignStart="@+id/MinTempTextView"
+            android:layout_centerInParent="true"
             android:layout_below="@+id/MinTempTextView"
             android:layout_marginTop="27dp"
             android:textSize="18sp" />
@@ -49,10 +46,10 @@
   <TextView android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/MaxTempTextView"
-            android:layout_alignLeft="@+id/DateTextView"
-            android:layout_alignStart="@+id/DateTextView"
-            android:layout_marginBottom="11dp" />
+            android:layout_below="@+id/WeatherImageView"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="20dp"/>
 
   <FrameLayout android:id="@+id/progressBarHolder"
                android:animateLayoutChanges="true"

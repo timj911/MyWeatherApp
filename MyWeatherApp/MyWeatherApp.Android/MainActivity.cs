@@ -7,6 +7,8 @@ using System.Globalization;
 using static Android.Widget.ImageView;
 using Android.Views.Animations;
 using Android.Net;
+using Android.Content;
+using CheeseBind;
 
 namespace MyWeatherApp.Droid
 {
@@ -14,23 +16,49 @@ namespace MyWeatherApp.Droid
     public class MainActivity : Activity
     {
 
+        [BindView(Resource.Id.DateTextView)]
+        public TextView dateTextView;
+
+        [BindView(Resource.Id.MaxTempTextView)]
+        public TextView maxTempTextView;
+
+        [BindView(Resource.Id.MinTempTextView)]
+        public TextView minTempTextView;
+
+        [BindView(Resource.Id.LocationTextView)]
+        public TextView locationTextView;
+
+        [BindView(Resource.Id.textView2)]
+        public TextView descriptionTextView;
+
+        [BindView(Resource.Id.WeatherImageView)]
+        public ImageView weatherImageView;
+
+        [BindView(Resource.Id.progressBarHolder)]
+        public FrameLayout pbHolder;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.main);
 
-            bool isOnline = CheckInternetConnection();
+            //Bind view widgets via cheese knife
+            Cheeseknife.Bind(this);
 
-            if (isOnline)
+            Run();
+        }
+
+        public void Run()
+        {
+            if (CheckInternetConnection())
             {
-                GetWeatherInfo();
+                GetWeatherInfoAsync();
             }
             else
             {
-                NoInternet();
+                HandleNoInternet();
             }
-
         }
 
         public bool CheckInternetConnection()
@@ -40,28 +68,47 @@ namespace MyWeatherApp.Droid
             return networkInfo != null && networkInfo.IsConnected;
         }
 
-        public async void GetWeatherInfo()
+        public void ClearWidgets()
+        {
+            dateTextView.Text = "";
+            maxTempTextView.Text = "";
+            minTempTextView.Text = "";
+            locationTextView.Text = "";
+            descriptionTextView.Text = "";
+        }
+
+        public void HandleNoInternet()
+        {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+            alertDialog.SetTitle("Please note");
+
+            alertDialog.SetMessage("There is no internet connection please check your internet settings and retry");
+
+            alertDialog.SetNegativeButton("Retry", (c, ev) =>
+            {
+                weatherImageView.SetImageResource(Resource.Mipmap.noInternet);
+                descriptionTextView.Text = "No internet connection...";
+            });
+
+            alertDialog.Show();
+        }
+
+        public async void GetWeatherInfoAsync()
         {
             AlphaAnimation inAnimation;
             AlphaAnimation outAnimation;
 
-            //Get the widgets
-            TextView dateTextView = FindViewById<TextView>(Resource.Id.DateTextView);
-            TextView maxTempTextView = FindViewById<TextView>(Resource.Id.MaxTempTextView);
-            TextView minTempTextView = FindViewById<TextView>(Resource.Id.MinTempTextView);
-            TextView locationTextView = FindViewById<TextView>(Resource.Id.LocationTextView);
-            TextView descriptionTextView = FindViewById<TextView>(Resource.Id.textView2);
-            ImageView weatherImageView = FindViewById<ImageView>(Resource.Id.WeatherImageView);
-            FrameLayout pbHolder = FindViewById<FrameLayout>(Resource.Id.progressBarHolder);
-
-            //Get weather
+            //Show loader
             inAnimation = new AlphaAnimation(0f, 1f);
             inAnimation.Duration = 200;
             pbHolder.Animation = inAnimation;
             pbHolder.Visibility = Android.Views.ViewStates.Visible;
 
+            //Get weather
             Weather weatherMan = await Core.GetWeather();
 
+            //Hide loader
             outAnimation = new AlphaAnimation(1f, 0f);
             outAnimation.Duration = 200;
             pbHolder.Animation = outAnimation;
@@ -83,11 +130,6 @@ namespace MyWeatherApp.Droid
             .Into(weatherImageView);
 
             weatherImageView.SetScaleType(ScaleType.FitCenter);
-        }
-
-        public void NoInternet()
-        {
-            Console.WriteLine("Touch!!!");
         }
 
     }
