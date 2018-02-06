@@ -17,7 +17,7 @@ namespace MyWeatherApp.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.main);
 
             AlphaAnimation inAnimation;
             AlphaAnimation outAnimation;
@@ -27,6 +27,7 @@ namespace MyWeatherApp.Droid
             TextView maxTempTextView = FindViewById<TextView>(Resource.Id.MaxTempTextView);
             TextView minTempTextView = FindViewById<TextView>(Resource.Id.MinTempTextView);
             TextView locationTextView = FindViewById<TextView>(Resource.Id.LocationTextView);
+            TextView DescriptionTextView = FindViewById<TextView>(Resource.Id.textView2);
             ImageView weatherImageView = FindViewById<ImageView>(Resource.Id.WeatherImageView);
             FrameLayout pbHolder = FindViewById<FrameLayout>(Resource.Id.progressBarHolder);
 
@@ -51,6 +52,7 @@ namespace MyWeatherApp.Droid
             maxTempTextView.Text = string.Format("Max: {0} °C", WeerMan.MaxTemp);
             minTempTextView.Text = string.Format("Min: {0} °C", WeerMan.MinTemp);
             locationTextView.Text = string.Format("{0}, {1}", WeerMan.Location, countryName.DisplayName);
+            DescriptionTextView.Text = WeerMan.Description;
 
             //load weather image
             Picasso.With(this)

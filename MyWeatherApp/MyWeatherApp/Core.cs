@@ -33,7 +33,8 @@ namespace MyWeatherApp
                         MinTemp = (string)results["main"]["temp_min"],
                         MaxTemp = (string)results["main"]["temp_max"],
                         WeatherIcon = (string)results["weather"][0]["icon"],
-                        Country = (string)results["sys"]["country"]
+                        Country = (string)results["sys"]["country"],
+                        Description = (string)results["weather"][0]["description"]
                     };
 
                     return weather;

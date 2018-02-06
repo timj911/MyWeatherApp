@@ -9,6 +9,7 @@ namespace MyWeatherApp
         public string MaxTemp { get; set; }
         public string WeatherIcon { get; set; }
         public string Country { get; set; }
+        public string Description { get; set; }
 
 
         public Weather()
@@ -18,6 +19,7 @@ namespace MyWeatherApp
             this.MaxTemp = " ";
             this.WeatherIcon = " ";
             this.Country = " ";
+            this.Description = " ";
         }
     }
 }
