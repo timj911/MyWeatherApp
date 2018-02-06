@@ -209,20 +209,17 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f020007
 			public const int notification_icon_background = 2130837511;
 			
-			// aapt resource value: 0x7f02000b
-			public const int notification_template_icon_bg = 2130837515;
+			// aapt resource value: 0x7f02000a
+			public const int notification_template_icon_bg = 2130837514;
 			
-			// aapt resource value: 0x7f02000c
-			public const int notification_template_icon_low_bg = 2130837516;
+			// aapt resource value: 0x7f02000b
+			public const int notification_template_icon_low_bg = 2130837515;
 			
 			// aapt resource value: 0x7f020008
 			public const int notification_tile_bg = 2130837512;
 			
 			// aapt resource value: 0x7f020009
 			public const int notify_panel_notification_icon_bg = 2130837513;
-			
-			// aapt resource value: 0x7f02000a
-			public const int Weather = 2130837514;
 			
 			static Drawable()
 			{
@@ -237,35 +234,35 @@ namespace MyWeatherApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a000b
-			public const int DateTextView = 2131361803;
-			
-			// aapt resource value: 0x7f0a000f
-			public const int LocationTextView = 2131361807;
-			
-			// aapt resource value: 0x7f0a000d
-			public const int MaxTempTextView = 2131361805;
+			// aapt resource value: 0x7f0a000a
+			public const int DateTextView = 2131361802;
 			
 			// aapt resource value: 0x7f0a000e
-			public const int MinTempTextView = 2131361806;
+			public const int LocationTextView = 2131361806;
 			
 			// aapt resource value: 0x7f0a000c
-			public const int WeatherImageView = 2131361804;
+			public const int MaxTempTextView = 2131361804;
+			
+			// aapt resource value: 0x7f0a000d
+			public const int MinTempTextView = 2131361805;
+			
+			// aapt resource value: 0x7f0a000b
+			public const int WeatherImageView = 2131361803;
+			
+			// aapt resource value: 0x7f0a0011
+			public const int action_container = 2131361809;
+			
+			// aapt resource value: 0x7f0a001d
+			public const int action_divider = 2131361821;
 			
 			// aapt resource value: 0x7f0a0012
-			public const int action_container = 2131361810;
-			
-			// aapt resource value: 0x7f0a001e
-			public const int action_divider = 2131361822;
+			public const int action_image = 2131361810;
 			
 			// aapt resource value: 0x7f0a0013
-			public const int action_image = 2131361811;
+			public const int action_text = 2131361811;
 			
-			// aapt resource value: 0x7f0a0014
-			public const int action_text = 2131361812;
-			
-			// aapt resource value: 0x7f0a001f
-			public const int actions = 2131361823;
+			// aapt resource value: 0x7f0a001e
+			public const int actions = 2131361822;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int async = 2131361797;
@@ -273,20 +270,20 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a0006
 			public const int blocking = 2131361798;
 			
-			// aapt resource value: 0x7f0a001d
-			public const int chronometer = 2131361821;
+			// aapt resource value: 0x7f0a001c
+			public const int chronometer = 2131361820;
 			
 			// aapt resource value: 0x7f0a0007
 			public const int forever = 2131361799;
 			
-			// aapt resource value: 0x7f0a0016
-			public const int icon = 2131361814;
+			// aapt resource value: 0x7f0a0015
+			public const int icon = 2131361813;
 			
-			// aapt resource value: 0x7f0a0020
-			public const int icon_group = 2131361824;
+			// aapt resource value: 0x7f0a001f
+			public const int icon_group = 2131361823;
 			
-			// aapt resource value: 0x7f0a0019
-			public const int info = 2131361817;
+			// aapt resource value: 0x7f0a0018
+			public const int info = 2131361816;
 			
 			// aapt resource value: 0x7f0a0008
 			public const int italic = 2131361800;
@@ -300,26 +297,23 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a0009
 			public const int normal = 2131361801;
 			
-			// aapt resource value: 0x7f0a001b
-			public const int notification_background = 2131361819;
+			// aapt resource value: 0x7f0a001a
+			public const int notification_background = 2131361818;
+			
+			// aapt resource value: 0x7f0a0016
+			public const int notification_main_column = 2131361814;
+			
+			// aapt resource value: 0x7f0a0014
+			public const int notification_main_column_container = 2131361812;
+			
+			// aapt resource value: 0x7f0a0010
+			public const int progressBarHolder = 2131361808;
+			
+			// aapt resource value: 0x7f0a0019
+			public const int right_icon = 2131361817;
 			
 			// aapt resource value: 0x7f0a0017
-			public const int notification_main_column = 2131361815;
-			
-			// aapt resource value: 0x7f0a0015
-			public const int notification_main_column_container = 2131361813;
-			
-			// aapt resource value: 0x7f0a000a
-			public const int progressBar1 = 2131361802;
-			
-			// aapt resource value: 0x7f0a0011
-			public const int progressBarHolder = 2131361809;
-			
-			// aapt resource value: 0x7f0a001a
-			public const int right_icon = 2131361818;
-			
-			// aapt resource value: 0x7f0a0018
-			public const int right_side = 2131361816;
+			public const int right_side = 2131361815;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int text = 2131361794;
@@ -327,11 +321,11 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int text2 = 2131361795;
 			
-			// aapt resource value: 0x7f0a0010
-			public const int textView2 = 2131361808;
+			// aapt resource value: 0x7f0a000f
+			public const int textView2 = 2131361807;
 			
-			// aapt resource value: 0x7f0a001c
-			public const int time = 2131361820;
+			// aapt resource value: 0x7f0a001b
+			public const int time = 2131361819;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int title = 2131361796;
@@ -366,28 +360,25 @@ namespace MyWeatherApp.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int layout1 = 2130968576;
+			public const int main = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int main = 2130968577;
+			public const int notification_action = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int notification_action = 2130968578;
+			public const int notification_action_tombstone = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int notification_action_tombstone = 2130968579;
+			public const int notification_template_custom_big = 2130968579;
 			
 			// aapt resource value: 0x7f040004
-			public const int notification_template_custom_big = 2130968580;
+			public const int notification_template_icon_group = 2130968580;
 			
 			// aapt resource value: 0x7f040005
-			public const int notification_template_icon_group = 2130968581;
+			public const int notification_template_part_chronometer = 2130968581;
 			
 			// aapt resource value: 0x7f040006
-			public const int notification_template_part_chronometer = 2130968582;
-			
-			// aapt resource value: 0x7f040007
-			public const int notification_template_part_time = 2130968583;
+			public const int notification_template_part_time = 2130968582;
 			
 			static Layout()
 			{
@@ -403,7 +394,10 @@ namespace MyWeatherApp.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Icon = 2130903040;
+			public const int ic_launcher = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Icon = 2130903041;
 			
 			static Mipmap()
 			{
