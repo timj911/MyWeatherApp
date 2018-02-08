@@ -15,9 +15,16 @@ namespace MyWeatherApp.iOS
          
         }
 
+        LoadingOverlay loadPop;
+
         public override async void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
+
+            var bounds = UIScreen.MainScreen.Bounds;
+
+            loadPop = new LoadingOverlay(bounds);
+            View.Add(loadPop);
 
             Weather weatherMan = await Core.GetWeather();
 
@@ -30,6 +37,8 @@ namespace MyWeatherApp.iOS
             locationLabel.Text = string.Format("{0}, {1}", weatherMan.Location, countryName.DisplayName);
 
             weatherImage.Image = await LoadImage(string.Format("http://openweathermap.org/img/w/{0}.png", weatherMan.WeatherIcon));
+
+            loadPop.Hide();
 
         }
 
