@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:id="@+id/DateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp" />
+    <ImageView
+        android:id="@+id/WeatherImageView"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_below="@+id/DateTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/DescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WeatherImageView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/MaxTempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DescriptionTextView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/MinTempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/MaxTempTextView"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/LocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/MinTempTextView"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp" />
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:alpha="0.4"
+        android:background="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="Loading..." />
+    </FrameLayout>
+</RelativeLayout>

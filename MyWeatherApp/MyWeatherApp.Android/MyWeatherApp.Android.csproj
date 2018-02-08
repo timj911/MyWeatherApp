@@ -130,7 +130,7 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\main.xml">
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

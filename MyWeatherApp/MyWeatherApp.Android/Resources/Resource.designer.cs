@@ -237,11 +237,14 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a000a
 			public const int DateTextView = 2131361802;
 			
+			// aapt resource value: 0x7f0a000c
+			public const int DescriptionTextView = 2131361804;
+			
 			// aapt resource value: 0x7f0a000f
 			public const int LocationTextView = 2131361807;
 			
-			// aapt resource value: 0x7f0a000c
-			public const int MaxTempTextView = 2131361804;
+			// aapt resource value: 0x7f0a000d
+			public const int MaxTempTextView = 2131361805;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int MinTempTextView = 2131361806;
@@ -321,9 +324,6 @@ namespace MyWeatherApp.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int text2 = 2131361795;
 			
-			// aapt resource value: 0x7f0a000d
-			public const int textView2 = 2131361805;
-			
 			// aapt resource value: 0x7f0a001b
 			public const int time = 2131361819;
 			
@@ -360,7 +360,7 @@ namespace MyWeatherApp.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int main = 2130968576;
+			public const int Main = 2130968576;
 			
 			// aapt resource value: 0x7f040001
 			public const int notification_action = 2130968577;

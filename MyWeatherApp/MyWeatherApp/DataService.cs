@@ -9,6 +9,7 @@ namespace MyWeatherApp
         public static async Task<dynamic> getDataFromService(string queryString)
         {
             HttpClient client = new HttpClient();
+            
             var response = await client.GetAsync(queryString);
 
             dynamic data = null;

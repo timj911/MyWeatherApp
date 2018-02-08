@@ -7,7 +7,6 @@ using System.Globalization;
 using static Android.Widget.ImageView;
 using Android.Views.Animations;
 using Android.Net;
-using Android.Content;
 using CheeseBind;
 
 namespace MyWeatherApp.Droid
@@ -28,7 +27,7 @@ namespace MyWeatherApp.Droid
         [BindView(Resource.Id.LocationTextView)]
         public TextView locationTextView;
 
-        [BindView(Resource.Id.textView2)]
+        [BindView(Resource.Id.DescriptionTextView)]
         public TextView descriptionTextView;
 
         [BindView(Resource.Id.WeatherImageView)]
@@ -41,7 +40,7 @@ namespace MyWeatherApp.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.main);
+            SetContentView(Resource.Layout.Main);
 
             //Bind view widgets via cheese knife
             Cheeseknife.Bind(this);

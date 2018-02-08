@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -44,5 +44,13 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access location when in the background.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs access location when open and in the background.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>need location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>need location</string>
 </dict>
 </plist>

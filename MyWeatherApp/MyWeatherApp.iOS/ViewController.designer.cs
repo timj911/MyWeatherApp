@@ -1,24 +1,84 @@
-﻿//		
-// This file has been generated automatically by MonoDevelop to store outlets and		
-// actions made in the Xcode designer. If it is removed, they will be lost.		
-// Manual changes to this file may not be handled correctly.		
-//		
+﻿// WARNING
+//
+// This file has been generated automatically by Visual Studio from the outlets and
+// actions declared in your storyboard file.
+// Manual changes to this file will not be maintained.
+//
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace MyWeatherApp.iOS
 {
-    [Register("ViewController")]
+    [Register ("ViewController")]
     partial class ViewController
     {
         [Outlet]
         UIKit.UIButton Button { get; set; }
 
-        void ReleaseDesignerOutlets()
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel dateLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel descriptionLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel locationLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel maxLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel minLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton myButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView weatherImage { get; set; }
+
+        void ReleaseDesignerOutlets ()
         {
-            if (Button != null)
-            {
-                Button.Dispose();
-                Button = null;
+            if (dateLabel != null) {
+                dateLabel.Dispose ();
+                dateLabel = null;
+            }
+
+            if (descriptionLabel != null) {
+                descriptionLabel.Dispose ();
+                descriptionLabel = null;
+            }
+
+            if (locationLabel != null) {
+                locationLabel.Dispose ();
+                locationLabel = null;
+            }
+
+            if (maxLabel != null) {
+                maxLabel.Dispose ();
+                maxLabel = null;
+            }
+
+            if (minLabel != null) {
+                minLabel.Dispose ();
+                minLabel = null;
+            }
+
+            if (myButton != null) {
+                myButton.Dispose ();
+                myButton = null;
+            }
+
+            if (weatherImage != null) {
+                weatherImage.Dispose ();
+                weatherImage = null;
             }
         }
     }
