@@ -43,7 +43,7 @@ namespace MyWeatherApp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Error: " + ex);
+                throw ex;
             }
 
             return null;

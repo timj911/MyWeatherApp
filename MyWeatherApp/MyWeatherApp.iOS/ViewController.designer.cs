@@ -38,10 +38,6 @@ namespace MyWeatherApp.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton myButton { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView weatherImage { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -69,11 +65,6 @@ namespace MyWeatherApp.iOS
             if (minLabel != null) {
                 minLabel.Dispose ();
                 minLabel = null;
-            }
-
-            if (myButton != null) {
-                myButton.Dispose ();
-                myButton = null;
             }
 
             if (weatherImage != null) {

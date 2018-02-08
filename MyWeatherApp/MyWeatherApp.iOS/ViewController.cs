@@ -12,7 +12,7 @@ namespace MyWeatherApp.iOS
 
         public ViewController(IntPtr handle) : base(handle)
         {
-         
+
         }
 
         LoadingOverlay loadPop;
@@ -21,25 +21,45 @@ namespace MyWeatherApp.iOS
         {
             base.ViewWillAppear(animated);
 
-            var bounds = UIScreen.MainScreen.Bounds;
+            try
+            {
+                var bounds = UIScreen.MainScreen.Bounds;
 
-            loadPop = new LoadingOverlay(bounds);
-            View.Add(loadPop);
+                loadPop = new LoadingOverlay(bounds);
+                View.Add(loadPop);
 
-            Weather weatherMan = await Core.GetWeather();
+                Weather weatherMan = await Core.GetWeather();
 
-            RegionInfo countryName = new RegionInfo(weatherMan.Country);
+                RegionInfo countryName = new RegionInfo(weatherMan.Country);
 
-            dateLabel.Text = string.Format("Today: {0}", DateTime.Today.ToLongDateString());
-            descriptionLabel.Text = weatherMan.Description;
-            maxLabel.Text = string.Format("Max: {0} °C", weatherMan.MaxTemp);
-            minLabel.Text = string.Format("Min: {0} °C", weatherMan.MinTemp);
-            locationLabel.Text = string.Format("{0}, {1}", weatherMan.Location, countryName.DisplayName);
+                dateLabel.Text = string.Format("Today: {0}", DateTime.Today.ToLongDateString());
+                descriptionLabel.Text = weatherMan.Description;
+                maxLabel.Text = string.Format("Max: {0} °C", weatherMan.MaxTemp);
+                minLabel.Text = string.Format("Min: {0} °C", weatherMan.MinTemp);
+                locationLabel.Text = string.Format("{0}, {1}", weatherMan.Location, countryName.DisplayName);
 
-            weatherImage.Image = await LoadImage(string.Format("http://openweathermap.org/img/w/{0}.png", weatherMan.WeatherIcon));
+                weatherImage.Image = await LoadImage(string.Format("http://openweathermap.org/img/w/{0}.png", weatherMan.WeatherIcon));
 
-            loadPop.Hide();
+                loadPop.Hide();
+            }
+            catch (Exception e)
+            {
+                loadPop.Hide();
 
+                switch (e.Message)
+                {
+
+                    case "A geolocation error occured: Unauthorized":
+                        descriptionLabel.Text = "Please set location on emulator";
+                        break;
+
+                    case "A task was canceled.":
+                        var okAlertController = UIAlertController.Create("Location error", "Please set location on emulator", UIAlertControllerStyle.Alert);
+                        okAlertController.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
+                        PresentViewController(okAlertController, true, null);
+                        break;
+                }
+            }
         }
 
         public async Task<UIImage> LoadImage(string imageUrl)
@@ -48,17 +68,14 @@ namespace MyWeatherApp.iOS
 
             Task<byte[]> contentsTask = httpClient.GetByteArrayAsync(imageUrl);
 
-            // await! control returns to the caller and the task continues to run on another thread
             var contents = await contentsTask;
 
-            // load from bytes
             return UIImage.LoadFromData(NSData.FromArray(contents));
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
         }
 
         public override void DidReceiveMemoryWarning()

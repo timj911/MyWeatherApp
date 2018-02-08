@@ -95,40 +95,48 @@ namespace MyWeatherApp.Droid
 
         public async void GetWeatherInfoAsync()
         {
-            AlphaAnimation inAnimation;
-            AlphaAnimation outAnimation;
+            try
+            {
+                AlphaAnimation inAnimation;
+                AlphaAnimation outAnimation;
 
-            //Show loader
-            inAnimation = new AlphaAnimation(0f, 1f);
-            inAnimation.Duration = 200;
-            pbHolder.Animation = inAnimation;
-            pbHolder.Visibility = Android.Views.ViewStates.Visible;
+                //Show loader
+                inAnimation = new AlphaAnimation(0f, 1f);
+                inAnimation.Duration = 200;
+                pbHolder.Animation = inAnimation;
+                pbHolder.Visibility = Android.Views.ViewStates.Visible;
 
-            //Get weather
-            Weather weatherMan = await Core.GetWeather();
+                //Get weather
+                Weather weatherMan = await Core.GetWeather();
 
-            //Hide loader
-            outAnimation = new AlphaAnimation(1f, 0f);
-            outAnimation.Duration = 200;
-            pbHolder.Animation = outAnimation;
-            pbHolder.Visibility = Android.Views.ViewStates.Gone;
+                //Hide loader
+                outAnimation = new AlphaAnimation(1f, 0f);
+                outAnimation.Duration = 200;
+                pbHolder.Animation = outAnimation;
+                pbHolder.Visibility = Android.Views.ViewStates.Gone;
 
-            //Get country name from RegionInfo
-            RegionInfo countryName = new RegionInfo(weatherMan.Country);
+                //Get country name from RegionInfo
+                RegionInfo countryName = new RegionInfo(weatherMan.Country);
 
-            //Set values    
-            dateTextView.Text = string.Format("Today: {0}", DateTime.Today.ToLongDateString());
-            maxTempTextView.Text = string.Format("Max: {0} °C", weatherMan.MaxTemp);
-            minTempTextView.Text = string.Format("Min: {0} °C", weatherMan.MinTemp);
-            locationTextView.Text = string.Format("{0}, {1}", weatherMan.Location, countryName.DisplayName);
-            descriptionTextView.Text = weatherMan.Description;
+                //Set values    
+                dateTextView.Text = string.Format("Today: {0}", DateTime.Today.ToLongDateString());
+                maxTempTextView.Text = string.Format("Max: {0} °C", weatherMan.MaxTemp);
+                minTempTextView.Text = string.Format("Min: {0} °C", weatherMan.MinTemp);
+                locationTextView.Text = string.Format("{0}, {1}", weatherMan.Location, countryName.DisplayName);
+                descriptionTextView.Text = weatherMan.Description;
 
-            //load weather image
-            Picasso.With(this)
-            .Load(string.Format("http://openweathermap.org/img/w/{0}.png", weatherMan.WeatherIcon))
-            .Into(weatherImageView);
+                //load weather image
+                Picasso.With(this)
+                .Load(string.Format("http://openweathermap.org/img/w/{0}.png", weatherMan.WeatherIcon))
+                .Into(weatherImageView);
 
-            weatherImageView.SetScaleType(ScaleType.FitCenter);
+                weatherImageView.SetScaleType(ScaleType.FitCenter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        
         }
 
     }
